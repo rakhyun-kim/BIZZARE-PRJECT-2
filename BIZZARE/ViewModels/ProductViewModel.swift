@@ -21,12 +21,12 @@ class ProductViewModel: ObservableObject {
     }
     
     func loadProducts() {
-        // JSON 파일에서 상품 데이터 로드
         if let url = Bundle.main.url(forResource: "products", withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
-                products = try decoder.decode([Product].self, from: data)
+                let response = try decoder.decode(ProductResponse.self, from: data)
+                self.products = response.products
             } catch {
                 print("Error loading products: \(error)")
             }
