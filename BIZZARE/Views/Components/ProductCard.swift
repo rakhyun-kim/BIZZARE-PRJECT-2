@@ -20,9 +20,22 @@ struct ProductCard: View {
                 
                 // 상품 정보
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(product.brand)
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                    HStack {
+                        Text(product.brand)
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        
+                        if product.isOnSale {
+                            Text("SALE")
+                                .font(.caption2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.red)
+                                .cornerRadius(4)
+                        }
+                    }
                     
                     Text(product.name)
                         .font(.system(size: 14, weight: .medium))
@@ -32,17 +45,6 @@ struct ProductCard: View {
                     Text("$\(product.price, specifier: "%.2f")")
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.black)
-                    
-                    if product.isOnSale {
-                        Text("SALE")
-                            .font(.caption2)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Color.red)
-                            .cornerRadius(4)
-                    }
                 }
                 .padding(.horizontal, 8)
                 
