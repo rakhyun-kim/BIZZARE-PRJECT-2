@@ -5,6 +5,25 @@ struct HomeView: View {
     @State private var showingCart = false
     @State private var showingSearch = false
     
+    var cartButton: some View {
+        Button(action: { showingCart.toggle() }) {
+            ZStack(alignment: .topTrailing) {
+                Image(systemName: "cart")
+                    .foregroundColor(.black)
+                
+                if productVM.cartItemsCount > 0 {
+                    Text("\(productVM.cartItemsCount)")
+                        .font(.caption2)
+                        .padding(5)
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                        .clipShape(Circle())
+                        .offset(x: 10, y: -10)
+                }
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -50,10 +69,7 @@ struct HomeView: View {
                         .imageScale(.large)
                 }
                 
-                Button(action: { showingCart.toggle() }) {
-                    Image(systemName: "cart")
-                        .foregroundColor(.black)
-                }
+                cartButton
             })
         }
         .sheet(isPresented: $showingCart) {

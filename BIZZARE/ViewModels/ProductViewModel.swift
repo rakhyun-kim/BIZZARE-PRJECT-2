@@ -50,4 +50,8 @@ class ProductViewModel: ObservableObject {
     func removeFromCart(at offsets: IndexSet) {
         cartItems.remove(atOffsets: offsets)
     }
+    
+    var cartItemsCount: Int {
+        cartItems.reduce(0) { $0 + $1.quantity }
+    }
 } 

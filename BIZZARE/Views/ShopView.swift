@@ -10,6 +10,25 @@ struct ShopView: View {
         GridItem(.flexible(), spacing: 16)
     ]
     
+    var cartButton: some View {
+        Button(action: { showingCart.toggle() }) {
+            ZStack(alignment: .topTrailing) {
+                Image(systemName: "cart")
+                    .foregroundColor(.black)
+                
+                if productVM.cartItemsCount > 0 {
+                    Text("\(productVM.cartItemsCount)")
+                        .font(.caption2)
+                        .padding(5)
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                        .clipShape(Circle())
+                        .offset(x: 10, y: -10)
+                }
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -72,10 +91,7 @@ struct ShopView: View {
                         .imageScale(.large)
                 }
                 
-                Button(action: { showingCart.toggle() }) {
-                    Image(systemName: "cart")
-                        .foregroundColor(.black)
-                }
+                cartButton
             })
         }
         .sheet(isPresented: $showingCart) {
