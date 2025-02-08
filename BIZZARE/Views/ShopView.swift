@@ -5,6 +5,11 @@ struct ShopView: View {
     @State private var showingCart = false
     @State private var showingSearch = false
     
+    let columns = [
+        GridItem(.flexible(), spacing: 16),
+        GridItem(.flexible(), spacing: 16)
+    ]
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -34,12 +39,20 @@ struct ShopView: View {
                 }
                 .background(Color.gray.opacity(0.1))
                 
+                // 선택된 카테고리 표시
+                HStack {
+                    Text(productVM.selectedCategory.rawValue)
+                        .font(.headline)
+                        .foregroundColor(.black)
+                    Spacer()
+                    Text("\(productVM.filteredProducts.count) items")
+                        .foregroundColor(.gray)
+                }
+                .padding()
+                
                 // 상품 그리드
                 ScrollView {
-                    LazyVGrid(columns: [
-                        GridItem(.flexible()),
-                        GridItem(.flexible())
-                    ], spacing: 15) {
+                    LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(productVM.filteredProducts) { product in
                             ProductCard(product: product)
                         }

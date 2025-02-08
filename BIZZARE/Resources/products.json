@@ -17,6 +17,60 @@
       "imageUrl": "https://example.com/slim-jeans.jpg",
       "category": "BOTTOM",
       "isOnSale": true
+    },
+    {
+      "id": 3,
+      "name": "Leather Jacket",
+      "price": 199.99,
+      "description": "Premium leather jacket with quilted lining",
+      "imageUrl": "https://example.com/leather-jacket.jpg",
+      "category": "OUTERWEAR",
+      "isOnSale": false
+    },
+    {
+      "id": 4,
+      "name": "Nike Air Max",
+      "price": 129.99,
+      "description": "Classic Nike Air Max sneakers",
+      "imageUrl": "https://example.com/nike-airmax.jpg",
+      "category": "SHOES",
+      "isOnSale": false
+    },
+    {
+      "id": 5,
+      "name": "Leather Belt",
+      "price": 39.99,
+      "description": "Genuine leather belt with silver buckle",
+      "imageUrl": "https://example.com/belt.jpg",
+      "category": "ACCESSORIES",
+      "isOnSale": false
+    },
+    {
+      "id": 6,
+      "name": "Supreme T-Shirt",
+      "price": 89.99,
+      "description": "Limited edition Supreme box logo t-shirt",
+      "imageUrl": "https://example.com/supreme-tshirt.jpg",
+      "category": "BRANDS",
+      "isOnSale": true
+    },
+    {
+      "id": 7,
+      "name": "Winter Parka",
+      "price": 159.99,
+      "description": "Warm winter parka with fur hood",
+      "imageUrl": "https://example.com/parka.jpg",
+      "category": "OUTERWEAR",
+      "isOnSale": true
+    },
+    {
+      "id": 8,
+      "name": "Cargo Pants",
+      "price": 69.99,
+      "description": "Comfortable cargo pants with multiple pockets",
+      "imageUrl": "https://example.com/cargo-pants.jpg",
+      "category": "BOTTOM",
+      "isOnSale": false
     }
   ]
 } 
