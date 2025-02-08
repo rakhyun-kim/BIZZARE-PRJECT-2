@@ -3,6 +3,8 @@ import SwiftUI
 struct ProductDetailView: View {
     let product: Product
     @EnvironmentObject var productVM: ProductViewModel
+    @State private var showingAddedToCart = false
+    @State private var quantity = 1
     
     var body: some View {
         ScrollView {
@@ -21,6 +23,10 @@ struct ProductDetailView: View {
                         .font(.title)
                         .foregroundColor(.black)
                     
+                    Text(product.brand)
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                    
                     Text("$\(product.price, specifier: "%.2f")")
                         .font(.title2)
                         .foregroundColor(.black)
@@ -28,22 +34,59 @@ struct ProductDetailView: View {
                     Text(product.description)
                         .foregroundColor(.black)
                     
+                    // 수량 선택기
+                    Stepper("Quantity: \(quantity)", value: $quantity, in: 1...10)
+                        .padding(.vertical)
+                    
                     Button(action: {
-                        productVM.addToCart(product: product)
+                        productVM.addToCart(product: product, quantity: quantity)
+                        showingAddedToCart = true
                     }) {
-                        Text("Add to Cart")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.black)
-                            .cornerRadius(10)
+                        HStack {
+                            Image(systemName: "cart.badge.plus")
+                            Text("Add to Cart")
+                        }
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.black)
+                        .cornerRadius(10)
                     }
                 }
                 .padding()
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .overlay(
+            ToastView(message: "Added to cart!", isShowing: $showingAddedToCart)
+                .animation(.easeInOut, value: showingAddedToCart)
+        )
+    }
+}
+
+// 토스트 메시지 뷰
+struct ToastView: View {
+    let message: String
+    @Binding var isShowing: Bool
+    
+    var body: some View {
+        if isShowing {
+            VStack {
+                Spacer()
+                Text(message)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.black.opacity(0.7))
+                    .cornerRadius(10)
+                    .padding(.bottom, 20)
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    isShowing = false
+                }
+            }
+        }
     }
 }
 

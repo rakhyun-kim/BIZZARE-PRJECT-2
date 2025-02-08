@@ -22,20 +22,28 @@ struct CartView: View {
                         }
                         .frame(width: 60, height: 60)
                         .clipped()
+                        .cornerRadius(8)
                         
                         VStack(alignment: .leading) {
                             Text(item.product.name)
                                 .foregroundColor(.black)
+                            Text(item.product.brand)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
                             Text("$\(item.product.price, specifier: "%.2f")")
                                 .foregroundColor(.black)
                         }
                         
                         Spacer()
                         
-                        Text("x\(item.quantity)")
-                            .foregroundColor(.black)
+                        Stepper("Qty: \(item.quantity)", value: .init(
+                            get: { item.quantity },
+                            set: { productVM.updateCartItemQuantity(item: item, quantity: $0) }
+                        ), in: 1...10)
+                        .labelsHidden()
                     }
                 }
+                .onDelete(perform: productVM.removeFromCart)
             }
             .navigationTitle("Cart")
             .navigationBarItems(trailing: Button("Done") { dismiss() })

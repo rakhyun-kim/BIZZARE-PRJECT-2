@@ -33,11 +33,21 @@ class ProductViewModel: ObservableObject {
         }
     }
     
-    func addToCart(product: Product) {
+    func addToCart(product: Product, quantity: Int = 1) {
         if let index = cartItems.firstIndex(where: { $0.product.id == product.id }) {
-            cartItems[index].quantity += 1
+            cartItems[index].quantity += quantity
         } else {
-            cartItems.append(CartItem(product: product, quantity: 1))
+            cartItems.append(CartItem(product: product, quantity: quantity))
         }
+    }
+    
+    func updateCartItemQuantity(item: CartItem, quantity: Int) {
+        if let index = cartItems.firstIndex(where: { $0.id == item.id }) {
+            cartItems[index].quantity = quantity
+        }
+    }
+    
+    func removeFromCart(at offsets: IndexSet) {
+        cartItems.remove(atOffsets: offsets)
     }
 } 
