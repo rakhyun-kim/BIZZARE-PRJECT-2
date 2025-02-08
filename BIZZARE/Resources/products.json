@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Classic White T-Shirt",
+      "price": 29.99,
+      "description": "Essential white t-shirt made from premium cotton",
+      "imageUrl": "https://example.com/white-tshirt.jpg",
+      "category": "TOP",
+      "isOnSale": false
+    },
+    {
+      "id": 2,
+      "name": "Slim Fit Jeans",
+      "price": 79.99,
+      "description": "Classic blue slim fit jeans with stretch comfort",
+      "imageUrl": "https://example.com/slim-jeans.jpg",
+      "category": "BOTTOM",
+      "isOnSale": true
+    }
+  ]
+} 
