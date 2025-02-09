@@ -14,9 +14,9 @@ class ProductViewModel: ObservableObject {
         case .all:
             return products
         case .sale:
-            return products.filter { $0.isOnSale }
+            return products.filter({ $0.isOnSale })
         default:
-            return products.filter { $0.category == selectedCategory.rawValue }
+            return products.filter({ $0.category == selectedCategory.rawValue })
         }
     }
     
@@ -53,5 +53,22 @@ class ProductViewModel: ObservableObject {
     
     var cartItemsCount: Int {
         cartItems.reduce(0) { $0 + $1.quantity }
+    }
+    
+    func filteredProducts(for brandCategory: String? = nil) -> [Product] {
+        if let brandCategory = brandCategory {
+            return products.filter({ $0.category == brandCategory })
+        }
+        
+        switch selectedCategory {
+        case .all:
+            return products
+        case .sale:
+            return products.filter({ $0.isOnSale })
+        case .brands:
+            return []  // 브랜드 카테고리에서는 브랜드 목록을 보여주므로 상품은 비움
+        default:
+            return products.filter({ $0.category == selectedCategory.rawValue })
+        }
     }
 } 

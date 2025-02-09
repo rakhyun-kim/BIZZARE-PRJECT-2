@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		50C930692D583839001F6DF2 /* NaverThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 50C930682D583839001F6DF2 /* NaverThirdPartyLogin */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		50B8969D2D56C45E0088A4D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +33,22 @@
 		50B896A62D56C45E0088A4D7 /* BIZZAREUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BIZZAREUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		50C9305E2D580DA2001F6DF2 /* Exceptions for "BIZZARE" folder in "BIZZARE" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 50B8968B2D56C45D0088A4D7 /* BIZZARE */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		50B8968E2D56C45D0088A4D7 /* BIZZARE */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				50C9305E2D580DA2001F6DF2 /* Exceptions for "BIZZARE" folder in "BIZZARE" target */,
+			);
 			path = BIZZARE;
 			sourceTree = "<group>";
 		};
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50C930692D583839001F6DF2 /* NaverThirdPartyLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +130,7 @@
 			);
 			name = BIZZARE;
 			packageProductDependencies = (
+				50C930682D583839001F6DF2 /* NaverThirdPartyLogin */,
 			);
 			productName = BIZZARE;
 			productReference = 50B8968C2D56C45D0088A4D7 /* BIZZARE.app */;
@@ -195,6 +214,9 @@
 			);
 			mainGroup = 50B896832D56C45D0088A4D7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				50C9305C2D580C8C001F6DF2 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 50B8968D2D56C45D0088A4D7 /* Products */;
 			projectDirPath = "";
@@ -398,6 +420,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BIZZARE/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BIZZARE/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -426,6 +449,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BIZZARE/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BIZZARE/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -552,6 +576,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		50C9305C2D580C8C001F6DF2 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/naver/naveridlogin-sdk-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		50C930682D583839001F6DF2 /* NaverThirdPartyLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50C9305C2D580C8C001F6DF2 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */;
+			productName = NaverThirdPartyLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 50B896842D56C45D0088A4D7 /* Project object */;
 }

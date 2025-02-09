@@ -1,8 +1,8 @@
 import Foundation
 
 enum Category: String, CaseIterable {
-    case brands = "BRANDS"
     case all = "ALL"
+    case brands = "BRANDS"
     case outerwear = "OUTERWEAR"
     case top = "TOP"
     case bottom = "BOTTOM"

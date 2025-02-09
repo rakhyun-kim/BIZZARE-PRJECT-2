@@ -4,6 +4,7 @@ struct ShopView: View {
     @EnvironmentObject var productVM: ProductViewModel
     @State private var showingCart = false
     @State private var showingSearch = false
+    @State private var selectedBrand: Brand?
     
     let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -39,6 +40,7 @@ struct ShopView: View {
                             Button(action: {
                                 withAnimation {
                                     productVM.selectedCategory = category
+                                    selectedBrand = nil
                                 }
                             }) {
                                 Text(category.rawValue)
@@ -58,25 +60,48 @@ struct ShopView: View {
                 }
                 .background(Color.gray.opacity(0.1))
                 
-                // 선택된 카테고리 표시
-                HStack {
-                    Text(productVM.selectedCategory.rawValue)
-                        .font(.headline)
-                        .foregroundColor(.black)
-                    Spacer()
-                    Text("\(productVM.filteredProducts.count) items")
-                        .foregroundColor(.gray)
-                }
-                .padding()
-                
-                // 상품 그리드
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(productVM.filteredProducts) { product in
-                            ProductCard(product: product)
+                if productVM.selectedCategory == .brands && selectedBrand == nil {
+                    // 브랜드 목록 표시
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 16) {
+                            ForEach(Brand.brands) { brand in
+                                Button(action: {
+                                    selectedBrand = brand
+                                }) {
+                                    Text(brand.name)
+                                        .font(.system(size: 14, weight: .medium))
+                                        .foregroundColor(.black)
+                                        .frame(maxWidth: .infinity)
+                                        .padding()
+                                        .background(Color.white)
+                                        .cornerRadius(10)
+                                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                                }
+                            }
                         }
+                        .padding()
+                    }
+                } else {
+                    // 선택된 카테고리 표시
+                    HStack {
+                        Text(selectedBrand?.name ?? productVM.selectedCategory.rawValue)
+                            .font(.headline)
+                            .foregroundColor(.black)
+                        Spacer()
+                        Text("\(productVM.filteredProducts.count) items")
+                            .foregroundColor(.gray)
                     }
                     .padding()
+                    
+                    // 상품 그리드
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 16) {
+                            ForEach(productVM.filteredProducts(for: selectedBrand?.category)) { product in
+                                ProductCard(product: product)
+                            }
+                        }
+                        .padding()
+                    }
                 }
             }
             .navigationTitle("Shop")
