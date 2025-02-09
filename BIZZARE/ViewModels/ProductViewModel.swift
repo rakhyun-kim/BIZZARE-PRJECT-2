@@ -57,7 +57,7 @@ class ProductViewModel: ObservableObject {
     
     func filteredProducts(for brandCategory: String? = nil) -> [Product] {
         if let brandCategory = brandCategory {
-            return products.filter({ $0.category == brandCategory })
+            return products.filter { $0.brand == brandCategory }
         }
         
         switch selectedCategory {

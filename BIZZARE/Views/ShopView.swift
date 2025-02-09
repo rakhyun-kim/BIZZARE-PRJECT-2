@@ -82,13 +82,13 @@ struct ShopView: View {
                         .padding()
                     }
                 } else {
-                    // 선택된 카테고리 표시
+                    // 선택된 카테고리 또는 브랜드의 상품 표시
                     HStack {
                         Text(selectedBrand?.name ?? productVM.selectedCategory.rawValue)
                             .font(.headline)
                             .foregroundColor(.black)
                         Spacer()
-                        Text("\(productVM.filteredProducts.count) items")
+                        Text("\(productVM.filteredProducts(for: selectedBrand?.name).count) items")
                             .foregroundColor(.gray)
                     }
                     .padding()
@@ -96,7 +96,7 @@ struct ShopView: View {
                     // 상품 그리드
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 16) {
-                            ForEach(productVM.filteredProducts(for: selectedBrand?.category)) { product in
+                            ForEach(productVM.filteredProducts(for: selectedBrand?.name)) { product in
                                 ProductCard(product: product)
                             }
                         }
