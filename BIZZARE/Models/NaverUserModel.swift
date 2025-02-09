@@ -6,8 +6,8 @@ struct NaverUserModel: Codable {
 
 struct NaverUserInfo: Codable {
     let id: String
-    let nickname: String
-    let name: String
+    let name: String?
+    let nickname: String?
     let email: String?
     let gender: String?
     let age: String?
@@ -17,7 +17,7 @@ struct NaverUserInfo: Codable {
     let mobile: String?
     
     enum CodingKeys: String, CodingKey {
-        case id, nickname, name, email, gender, age, birthday
+        case id, name, nickname, email, gender, age, birthday
         case profileImage = "profile_image"
         case birthyear, mobile
     }

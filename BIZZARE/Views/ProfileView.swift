@@ -10,17 +10,35 @@ struct ProfileView: View {
                 if isLoggedIn {
                     // 로그인된 상태의 UI
                     VStack(spacing: 16) {
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .foregroundColor(.gray)
+                        if let profileImage = naverAuthVM.userInfo?.profileImage,
+                           let url = URL(string: profileImage) {
+                            AsyncImage(url: url) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 100, height: 100)
+                                    .clipShape(Circle())
+                            } placeholder: {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .foregroundColor(.gray)
+                            }
+                        } else {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(.gray)
+                        }
                         
-                        Text(naverAuthVM.userInfo?.nickname ?? "사용자")
+                        Text(naverAuthVM.userInfo?.name ?? naverAuthVM.userInfo?.nickname ?? "사용자")
                             .font(.title2)
                             .fontWeight(.bold)
                         
-                        Text(naverAuthVM.userInfo?.email ?? "")
-                            .foregroundColor(.gray)
+                        if let email = naverAuthVM.userInfo?.email {
+                            Text(email)
+                                .foregroundColor(.gray)
+                        }
                         
                         Button(action: {
                             naverAuthVM.logout()
@@ -46,7 +64,7 @@ struct ProfileView: View {
                             naverAuthVM.login()
                         }) {
                             HStack {
-                                Image("naver_logo") // 네이버 로고 이미지 필요
+                                Image("naver_logo")
                                     .resizable()
                                     .frame(width: 20, height: 20)
                                 Text("네이버로 로그인")
