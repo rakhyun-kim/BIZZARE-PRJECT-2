@@ -61,8 +61,8 @@ class NaverAuthViewModel: NSObject, ObservableObject {
                     self?.userInfo = naverUser.response
                     print("로그인 성공!")
                     print("이메일: \(naverUser.response.email ?? "없음")")
-                    print("이름: \(naverUser.response.name)")
-                    print("닉네임: \(naverUser.response.nickname)")
+                    print("이름: \(String(describing: naverUser.response.name))")
+                    print("닉네임: \(String(describing: naverUser.response.nickname))")
                 }
             } catch {
                 print("디코딩 에러: \(error)")
