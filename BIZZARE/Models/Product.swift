@@ -3,7 +3,7 @@ import Foundation
 struct Product: Identifiable, Codable {
     let id: UUID
     let name: String
-    let price: Double
+    let price: Int
     let brand: String
     let description: String
     let imageUrl: String
@@ -32,7 +32,7 @@ struct Product: Identifiable, Codable {
         }
         
         self.name = try container.decode(String.self, forKey: .name)
-        self.price = try container.decode(Double.self, forKey: .price)
+        self.price = try container.decode(Int.self, forKey: .price)
         self.brand = try container.decode(String.self, forKey: .brand)
         self.description = try container.decode(String.self, forKey: .description)
         self.imageUrl = try container.decode(String.self, forKey: .imageUrl)
@@ -40,7 +40,7 @@ struct Product: Identifiable, Codable {
         self.isOnSale = try container.decode(Bool.self, forKey: .isOnSale)
     }
     
-    init(id: UUID = UUID(), name: String, price: Double, brand: String, description: String = "", imageUrl: String = "", category: String = "", isOnSale: Bool = false) {
+    init(id: UUID = UUID(), name: String, price: Int, brand: String, description: String = "", imageUrl: String = "", category: String = "", isOnSale: Bool = false) {
         self.id = id
         self.name = name
         self.price = price

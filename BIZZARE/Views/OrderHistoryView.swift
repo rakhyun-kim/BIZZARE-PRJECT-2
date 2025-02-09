@@ -63,7 +63,7 @@ struct OrderCard: View {
                 Text("총 \(order.items.count)개 상품")
                     .font(.subheadline)
                 Spacer()
-                Text("$\(order.totalAmount, specifier: "%.2f")")
+                Text("₩\(order.totalAmount)")
                     .font(.headline)
             }
             
@@ -78,7 +78,7 @@ struct OrderCard: View {
                         Text("\(item.quantity)개")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        Text("$\(item.product.price * Double(item.quantity), specifier: "%.2f")")
+                        Text("₩\(item.product.price * item.quantity)")
                             .font(.subheadline)
                     }
                 }

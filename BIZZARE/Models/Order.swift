@@ -3,7 +3,7 @@ import Foundation
 struct Order: Identifiable, Codable {
     let id: UUID
     let items: [CartItem]
-    let totalAmount: Double
+    let totalAmount: Int
     let orderDate: Date
     let orderStatus: OrderStatus
     
@@ -19,7 +19,7 @@ struct Order: Identifiable, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(UUID.self, forKey: .id)
         self.items = try container.decode([CartItem].self, forKey: .items)
-        self.totalAmount = try container.decode(Double.self, forKey: .totalAmount)
+        self.totalAmount = try container.decode(Int.self, forKey: .totalAmount)
         self.orderDate = try container.decode(Date.self, forKey: .orderDate)
         self.orderStatus = try container.decode(OrderStatus.self, forKey: .orderStatus)
     }
@@ -33,7 +33,7 @@ struct Order: Identifiable, Codable {
         try container.encode(orderStatus, forKey: .orderStatus)
     }
     
-    init(id: UUID = UUID(), items: [CartItem], totalAmount: Double, orderDate: Date = Date(), orderStatus: OrderStatus = .pending) {
+    init(id: UUID = UUID(), items: [CartItem], totalAmount: Int, orderDate: Date = Date(), orderStatus: OrderStatus = .pending) {
         self.id = id
         self.items = items
         self.totalAmount = totalAmount

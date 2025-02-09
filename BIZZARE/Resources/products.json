@@ -3,7 +3,7 @@
     {
       "id": "00000000-0000-0000-0000-000000000001",
       "name": "BADWAY Graphic T-Shirt",
-      "price": 89.99,
+      "price": 89000,
       "brand": "BADWAY",
       "description": "Oversized fit t-shirt with unique graphic print",
       "imageUrl": "https://example.com/badway-tshirt.jpg",
@@ -13,7 +13,7 @@
     {
       "id": "00000000-0000-0000-0000-000000000002",
       "name": "BADWAY Cargo Pants",
-      "price": 159.99,
+      "price": 159000,
       "brand": "BADWAY",
       "description": "Multi-pocket cargo pants",
       "imageUrl": "https://example.com/badway-pants.jpg",
@@ -23,7 +23,7 @@
     {
       "id": "00000000-0000-0000-0000-000000000003",
       "name": "BADWAY Bomber Jacket",
-      "price": 229.99,
+      "price": 229000,
       "brand": "BADWAY",
       "description": "Classic bomber jacket with custom patches",
       "imageUrl": "https://example.com/badway-jacket.jpg",
@@ -33,7 +33,7 @@
     {
       "id": "00000000-0000-0000-0000-000000000004",
       "name": "BADWAY Cap",
-      "price": 49.99,
+      "price": 49000,
       "brand": "BADWAY",
       "description": "Embroidered logo cap",
       "imageUrl": "https://example.com/badway-cap.jpg",
@@ -43,7 +43,7 @@
     {
       "id": 5,
       "name": "DAIRIKU Floral Shirt",
-      "price": 145.99,
+      "price": 145000,
       "brand": "DAIRIKU",
       "description": "Vintage inspired floral print shirt",
       "imageUrl": "https://example.com/dairiku-shirt.jpg",
@@ -53,7 +53,7 @@
     {
       "id": 6,
       "name": "DAIRIKU Straight Jeans",
-      "price": 189.99,
+      "price": 189000,
       "brand": "DAIRIKU",
       "description": "Classic straight fit jeans",
       "imageUrl": "https://example.com/dairiku-jeans.jpg",
@@ -63,7 +63,7 @@
     {
       "id": 7,
       "name": "DAIRIKU Leather Jacket",
-      "price": 399.99,
+      "price": 399000,
       "brand": "DAIRIKU",
       "description": "Vintage style leather jacket",
       "imageUrl": "https://example.com/dairiku-leather.jpg",
@@ -73,7 +73,7 @@
     {
       "id": 8,
       "name": "DAIRIKU Bandana",
-      "price": 45.99,
+      "price": 45000,
       "brand": "DAIRIKU",
       "description": "Vintage pattern bandana",
       "imageUrl": "https://example.com/dairiku-bandana.jpg",
@@ -83,7 +83,7 @@
     {
       "id": 9,
       "name": "el conductorH Silk Shirt",
-      "price": 329.99,
+      "price": 329000,
       "brand": "el conductorH",
       "description": "Luxurious silk shirt",
       "imageUrl": "https://example.com/conductor-shirt.jpg",
@@ -93,7 +93,7 @@
     {
       "id": 10,
       "name": "el conductorH Trousers",
-      "price": 289.99,
+      "price": 289000,
       "brand": "el conductorH",
       "description": "Wide leg wool trousers",
       "imageUrl": "https://example.com/conductor-trousers.jpg",
@@ -103,7 +103,7 @@
     {
       "id": 11,
       "name": "el conductorH Blazer",
-      "price": 459.99,
+      "price": 459000,
       "brand": "el conductorH",
       "description": "Tailored wool blazer",
       "imageUrl": "https://example.com/conductor-blazer.jpg",
@@ -113,7 +113,7 @@
     {
       "id": 12,
       "name": "el conductorH Belt",
-      "price": 159.99,
+      "price": 159000,
       "brand": "el conductorH",
       "description": "Leather belt with custom buckle",
       "imageUrl": "https://example.com/conductor-belt.jpg",

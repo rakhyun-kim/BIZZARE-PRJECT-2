@@ -45,7 +45,7 @@ struct SearchView: View {
                                         Text(product.name)
                                             .font(.headline)
                                             .foregroundColor(.black)
-                                        Text("$\(product.price, specifier: "%.2f")")
+                                        Text("₩\(product.price)")
                                             .font(.subheadline)
                                             .foregroundColor(.gray)
                                     }

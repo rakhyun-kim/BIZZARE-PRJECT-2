@@ -42,7 +42,7 @@ struct ProductCard: View {
                         .foregroundColor(.black)
                         .lineLimit(1)
                     
-                    Text("$\(product.price, specifier: "%.2f")")
+                    Text("₩\(product.price)")
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.black)
                 }

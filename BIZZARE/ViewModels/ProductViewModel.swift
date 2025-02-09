@@ -76,7 +76,7 @@ class ProductViewModel: ObservableObject {
     func createOrder() {
         let newOrder = Order(
             items: cartItems,
-            totalAmount: cartItems.reduce(0) { $0 + ($1.product.price * Double($1.quantity)) }
+            totalAmount: cartItems.reduce(0) { $0 + ($1.product.price * $1.quantity) }
         )
         orders.append(newOrder)
         cartItems.removeAll()

@@ -36,7 +36,7 @@ struct CartView: View {
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text(item.product.name)
                                         .font(.headline)
-                                    Text("$\(item.product.price, specifier: "%.2f")")
+                                    Text("₩\(item.product.price * item.quantity)")
                                         .font(.subheadline)
                                         .foregroundColor(.gray)
                                 }
@@ -76,7 +76,7 @@ struct CartView: View {
                                 Text("Total")
                                     .font(.headline)
                                 Spacer()
-                                Text("$\(totalPrice, specifier: "%.2f")")
+                                Text("₩\(totalPrice)")
                                     .font(.headline)
                             }
                         }
@@ -123,8 +123,8 @@ struct CartView: View {
         }
     }
     
-    private var totalPrice: Double {
-        productVM.cartItems.reduce(0) { $0 + ($1.product.price * Double($1.quantity)) }
+    private var totalPrice: Int {
+        productVM.cartItems.reduce(0) { $0 + ($1.product.price * $1.quantity) }
     }
 }
 
