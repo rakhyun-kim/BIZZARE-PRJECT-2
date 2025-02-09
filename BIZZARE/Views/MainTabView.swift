@@ -18,6 +18,7 @@ struct MainTabView: View {
                 }
             
             ProfileView()
+                .environmentObject(productVM)
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }

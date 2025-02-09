@@ -86,6 +86,7 @@ struct CartView: View {
                         isProcessingPayment = true
                         // 결제 처리 시뮬레이션
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            productVM.createOrder()  // 주문 생성
                             isProcessingPayment = false
                             showingPaymentAlert = true
                         }

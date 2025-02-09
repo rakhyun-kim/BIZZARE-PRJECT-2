@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "00000000-0000-0000-0000-000000000001",
       "name": "BADWAY Graphic T-Shirt",
       "price": 89.99,
       "brand": "BADWAY",
@@ -11,27 +11,27 @@
       "isOnSale": false
     },
     {
-      "id": 2,
+      "id": "00000000-0000-0000-0000-000000000002",
       "name": "BADWAY Cargo Pants",
       "price": 159.99,
       "brand": "BADWAY",
       "description": "Multi-pocket cargo pants",
       "imageUrl": "https://example.com/badway-pants.jpg",
       "category": "BOTTOM",
-      "isOnSale": false
+      "isOnSale": true
     },
     {
-      "id": 3,
+      "id": "00000000-0000-0000-0000-000000000003",
       "name": "BADWAY Bomber Jacket",
       "price": 229.99,
       "brand": "BADWAY",
       "description": "Classic bomber jacket with custom patches",
       "imageUrl": "https://example.com/badway-jacket.jpg",
       "category": "OUTERWEAR",
-      "isOnSale": true
+      "isOnSale": false
     },
     {
-      "id": 4,
+      "id": "00000000-0000-0000-0000-000000000004",
       "name": "BADWAY Cap",
       "price": 49.99,
       "brand": "BADWAY",

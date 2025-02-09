@@ -3,6 +3,7 @@ import Foundation
 class ProductViewModel: ObservableObject {
     @Published var products: [Product] = []
     @Published var cartItems: [CartItem] = []
+    @Published var orders: [Order] = []
     @Published var selectedCategory: Category = .all
     
     init() {
@@ -70,5 +71,14 @@ class ProductViewModel: ObservableObject {
         default:
             return products.filter({ $0.category == selectedCategory.rawValue })
         }
+    }
+    
+    func createOrder() {
+        let newOrder = Order(
+            items: cartItems,
+            totalAmount: cartItems.reduce(0) { $0 + ($1.product.price * Double($1.quantity)) }
+        )
+        orders.append(newOrder)
+        cartItems.removeAll()
     }
 } 

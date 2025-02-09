@@ -57,17 +57,3 @@ struct ProductCard: View {
         }
     }
 }
-
-#Preview {
-    ProductCard(product: Product(
-        id: 1,
-        name: "Sample Product",
-        price: 29.99,
-        brand: "Sample Brand",
-        description: "Sample description",
-        imageUrl: "https://example.com/sample.jpg",
-        category: "Sample",
-        isOnSale: false
-    ))
-    .environmentObject(ProductViewModel())
-} 

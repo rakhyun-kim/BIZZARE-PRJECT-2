@@ -90,18 +90,3 @@ struct ToastView: View {
     }
 }
 
-#Preview {
-    NavigationView {
-        ProductDetailView(product: Product(
-            id: 1,
-            name: "Sample Product",
-            price: 29.99,
-            brand: "Sample Brand",
-            description: "Sample description",
-            imageUrl: "https://example.com/sample.jpg",
-            category: "SALE",
-            isOnSale: true
-        ))
-        .environmentObject(ProductViewModel())
-    }
-} 
